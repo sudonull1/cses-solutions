@@ -35,26 +35,22 @@ const int infi = 0x3f3f3f3f;
 void solve()
 {
     read(n)
-        read(t);
+        read(x);
     Fin(v, n);
-    vector<ll> sum(n);
-    sum[0] = v[0];
-    for (int i = 1; i < n; i++)
-    {
-        sum[i] = v[i] + sum[i - 1];
+    int s = 0, j=0,k=0, c=0;
+    while (j < n) {
+    if (s < x) {
+      if (k >= n) break;
+      s += a[k++];
     }
-
-    ll j = 0, st = 0, res = 0, curr = 0;
-    while (j < n)
-    {
-        if (sum[j] < t)
-            j++;
-        if (sum[j] > t)
-            curr = sum[j] - v[st++];
-        if (curr == t)
-            res++;
+    else if (s > x) s -= a[j++];
+    else {
+      s -= a[j++];
+      s += a[k++];
     }
-    cout << res << endl;
+    if (s == x) c++;
+  }
+  cout << c << endl;
 }
 int main()
 {
