@@ -36,7 +36,7 @@ void solve()
 {
     read(n)
         read(x);
-    Fin(v, n);
+    Fin(a, n);
     int s = 0, j=0,k=0, c=0;
     while (j < n) {
     if (s < x) {
